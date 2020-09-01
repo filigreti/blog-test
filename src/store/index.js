@@ -28,12 +28,11 @@ export default new Vuex.Store({
 
 		editPost(state, payload) {
 			let k = [...state.blogContent];
-			k[payload.id - 1] = payload;
-			console.log(k, "new");
+			let s = k.findIndex((s) => s.id == payload.id);
+			k[s] = payload;
+
 			state.blogContent = k;
 			console.log(state.blogContent, "updated");
-
-			// console.log(state.blogContent[payload.id - 1], "lets");
 		},
 	},
 	plugins: [
